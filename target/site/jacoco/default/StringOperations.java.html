@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StringOperations.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FizzBuzz</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">StringOperations.java</span></div><h1>StringOperations.java</h1><pre class="source lang-java linenums">import java.util.ArrayList;
+import java.util.List;
+
+<span class="fc" id="L4">public class StringOperations {</span>
+
+    public String reverse(String a) {
+<span class="fc" id="L7">        List&lt;String&gt; tempArray = new ArrayList&lt;String&gt; (a.length());</span>
+<span class="fc bfc" id="L8" title="All 2 branches covered.">        for (int i=0; i&lt; a.length(); i++) {</span>
+<span class="fc" id="L9">            tempArray.add(a.substring(i, i+1));</span>
+        }
+<span class="fc" id="L11">        StringBuilder reversedString = new StringBuilder(a.length());</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">        for (int i = tempArray.size()-1; i&gt;=0; i--) {</span>
+<span class="fc" id="L13">            reversedString.append(tempArray.get(i));</span>
+        }
+<span class="fc" id="L15">        return reversedString.toString();</span>
+    }
+
+    public String concat(String a, String b) {
+<span class="fc" id="L19">        String retVal = null;</span>
+<span class="pc bpc" id="L20" title="2 of 4 branches missed.">        if (a != null &amp;&amp; a.length() &gt; 0) {</span>
+<span class="fc" id="L21">            StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L22">            sb.append(a);</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">            if (b != null) {</span>
+<span class="fc" id="L24">                sb.append(b);</span>
+            }
+<span class="fc" id="L26">            retVal = sb.toString();</span>
+        }
+<span class="fc" id="L28">        return retVal;</span>
+    }
+
+    public boolean isPalindrome(String a) {
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if(a.length()&lt;=1){</span>
+<span class="fc" id="L33">            return true;</span>
+        }
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        if(!(a.charAt(0)+&quot;&quot;).equals(a.charAt(a.length()-1)+&quot;&quot;)){</span>
+<span class="fc" id="L36">            return false;</span>
+        }
+<span class="fc" id="L38">        return isPalindrome(a.substring(1, a.length()-1));</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
